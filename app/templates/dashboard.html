@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+  </head>
+  <body>
+    <nav>
+      <a href="{{ url_for('main.index') }}">Home</a>
+      <a href="{{ url_for('main.login') }}">Login</a>
+      <a href="{{ url_for('main.register') }}">Register</a>
+      <a href="{{ url_for('main.dashboard') }}">Dashboard</a>
+    </nav>
+    <header>
+      <h1>Sports Canvas</h1>
+    </header>
+    <div class="content">
+      <h2>Dashboard</h2>
+      
+      <h3>Registered Users</h3>
+      <ul>
+        {% for user in users %}
+          <li>{{ user.Username }} ({{ user.Email }}) - Role: {{ user.Role }}</li>
+        {% endfor %}
+      </ul>
+
+      <h3>Players</h3>
+      <ul>
+        {% for player in players %}
+          <li>{{ player.FirstName }} {{ player.LastName }} - Team ID: {{ player.TeamID }}</li>
+        {% endfor %}
+      </ul>
+
+      <h3>Parents</h3>
+      <ul>
+        {% for parent in parents %}
+          <li>{{ parent.FirstName }} {{ parent.LastName }} - Contact: {{ parent.ContactNumber }}</li>
+        {% endfor %}
+      </ul>
+
+      <h3>Coaches</h3>
+      <ul>
+        {% for coach in coaches %}
+          <li>{{ coach.FirstName }} {{ coach.LastName }} - Team ID: {{ coach.TeamID }}</li>
+        {% endfor %}
+      </ul>
+    </div>
+    <footer>
+      <p>&copy; 2024 Sports Canvas</p>
+    </footer>
+  </body>
+</html>
