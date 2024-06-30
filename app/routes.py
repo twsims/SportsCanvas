@@ -57,8 +57,6 @@ def profile():
 
 @bp.route('/dashboard')
 def dashboard():
-    if 'username' not in session:
-        return redirect(url_for('main.login'))
     try:
         connection = pyodbc.connect(
             f"DRIVER={{{app.config['DRIVER']}}};"
